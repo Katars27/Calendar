@@ -1,0 +1,33 @@
+﻿<Window x:Class="Calendar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calendar"
+        xmlns:vm="clr-namespace:Calendar.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=vm:CalendarViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Календарь" FontSize="24" FontWeight="Bold" Margin="10" HorizontalAlignment="Center" Grid.Row="0"/>
+
+        <Calendar SelectedDate="{Binding SelectedDate}" Grid.Row="1" Margin="10" />
+
+        <StackPanel Grid.Row="2" VerticalAlignment="Center">
+            <TextBlock Text="{Binding WorkDaysUntilSummer, StringFormat='Осталось рабочих дней до лета: {0}'}" 
+                       FontSize="16" Margin="10" HorizontalAlignment="Center" />
+            <TextBlock Text="{Binding WorkHoursUntilSummer, StringFormat='Осталось рабочих часов: {0}'}" 
+                       FontSize="16" Margin="10" HorizontalAlignment="Center" />
+            <TextBlock Text="{Binding WorkMinutesUntilSummer, StringFormat='Осталось рабочих минут: {0}'}" 
+                       FontSize="16" Margin="10" HorizontalAlignment="Center" />
+            <TextBlock Text="{Binding WorkSecondsUntilSummer, StringFormat='Осталось рабочих секунд: {0}'}" 
+                       FontSize="16" Margin="10" HorizontalAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</Window>
